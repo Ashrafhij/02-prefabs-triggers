@@ -124,6 +124,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &7049948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7049951}
+  - component: {fileID: 7049950}
+  - component: {fileID: 7049949}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &7049949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7049948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &7049950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7049948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &7049951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7049948}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &187464074
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,8 +842,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278382868
-  m_fontColor: {r: 0.07840417, g: 0.9433962, b: 0.008899986, a: 1}
+    rgba: 4278321905
+  m_fontColor: {r: 0.94509804, g: 0.009292562, b: 0.007843137, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1079,6 +1147,8 @@ GameObject:
   - component: {fileID: 1363711266115913}
   - component: {fileID: 1363711266115910}
   - component: {fileID: 1363711266115911}
+  - component: {fileID: 212522841112678495}
+  - component: {fileID: 212522841112678497}
   m_Layer: 0
   m_Name: PlayerSpaceship
   m_TagString: Player
@@ -1118,9 +1188,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.103332736, y: 0.02921189}
-  m_Size: {x: 3.0184083, y: 2.829249}
-  m_Direction: 1
+  m_Offset: {x: -0, y: 0.02921189}
+  m_Size: {x: 3.8, y: 2.829249}
+  m_Direction: 0
 --- !u!50 &1363711266115909
 Rigidbody2D:
   serializedVersion: 4
@@ -1136,7 +1206,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1155,12 +1225,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363711266115907}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b571bdbf83e603449e50749327e251f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   triggeringTag: Enemy
+  maxShots: 3
+  healthText: {fileID: 0}
+  healthText2: {fileID: 0}
 --- !u!114 &1363711266115911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1206,23 +1279,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bee36aced74a14d8dcd54d5424d604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggeringTag: Enemy
---- !u!4 &4756833480714881
-Transform:
+  triggeringTag: 
+--- !u!224 &4756833480714881
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363711266115907}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.11, y: -3.24, z: 0}
-  m_LocalScale: {x: 0.648, y: 0.573, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.70841694, w: -0.7057942}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6838581, y: 0.58029246, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1811610585}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.213}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0957, y: -3.1681}
+  m_SizeDelta: {x: 4, y: 4}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &95657521628761207
 Animator:
   serializedVersion: 5
@@ -1296,6 +1373,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &212522841112678495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363711266115907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b01d403925b3d924ea5f7eb73634d4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!222 &212522841112678497
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363711266115907}
+  m_CullTransparentMesh: 1
 --- !u!1001 &8392271928369018371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1385,8 +1482,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2070287832}
-  - {fileID: 4756833480714881}
   - {fileID: 552903278}
   - {fileID: 945324280}
   - {fileID: 187464075}
   - {fileID: 1144032736}
+  - {fileID: 7049951}
+  - {fileID: 4756833480714881}
