@@ -8,6 +8,7 @@ TagManager:
   - Laser
   - Wall
   - HealthText
+  - newLaser
   layers:
   - Default
   - TransparentFX

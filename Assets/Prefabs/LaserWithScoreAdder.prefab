@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 206225842732292027}
   - component: {fileID: 206225842732292026}
   - component: {fileID: 206225842732292029}
-  - component: {fileID: -1515559938600826020}
   - component: {fileID: 6742800857908197687}
   - component: {fileID: -8433250894850022944}
-  - component: {fileID: -3242596646991089796}
+  - component: {fileID: 911327875528531741}
   m_Layer: 0
   m_Name: LaserWithScoreAdder
   m_TagString: Laser
@@ -87,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-1515559938600826020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206225842732292031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acc6f67fbb0751a4d92512ea05cbdf12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0, z: 0}
 --- !u!70 &6742800857908197687
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,7 +120,7 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
-  m_Direction: 0
+  m_Direction: 1
 --- !u!50 &-8433250894850022944
 Rigidbody2D:
   serializedVersion: 4
@@ -162,7 +148,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-3242596646991089796
+--- !u!114 &911327875528531741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,9 +157,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 206225842732292031}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35d38dd5a21655c4c934a69ecb043cc8, type: 3}
+  m_Script: {fileID: 11500000, guid: acc6f67fbb0751a4d92512ea05cbdf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggeringTag: Enemy
-  scoreField: {fileID: 0}
-  pointsToAdd: 5
+  velocity: {x: 0, y: 0, z: 0}

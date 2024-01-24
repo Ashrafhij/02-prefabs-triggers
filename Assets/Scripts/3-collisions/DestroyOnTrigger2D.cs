@@ -1,51 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
+/**
+ * This component reduces the spaceship's health whenever it triggers a 2D collider with the given tag.
+ * The spaceship is destroyed after a certain number of collisions.
+ * It also updates the health display using the HealthDisplay script.
+ */
 public class DestroyOnTrigger2D : MonoBehaviour
 {
-    [Tooltip("Every object tagged with this tag will trigger the reduction of health")]
+    [Tooltip("Every object tagged with this tag will trigger the reduction of spaceship's health")]
     [SerializeField] string triggeringTag;
 
-    [Tooltip("Maximum number of shots allowed before the object is destroyed")]
-    [SerializeField] int maxShots = 3;
+    [Tooltip("Maximum number of collisions allowed before the spaceship is destroyed")]
+    [SerializeField] int maxCollisions = 3;
 
-    [Tooltip("Reference to the UI Text component for displaying health")]
-    [SerializeField] TextMesh healthText;
+    private int currentCollisions = 0;
 
-    [Tooltip("Reference to the UI Text component for displaying health")]
-    public Text healthText2; // This line declares healthText as a public variable of type Text
+    private void Start()
+    {
 
-
-    private int currentShots = 0;
+        // Set initial health
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == triggeringTag && enabled)
         {
-            // Increase the shot count
-            currentShots++;
+            // Reduce the spaceship's health
+            currentCollisions++;
 
-            // Update health text
-            UpdateHealthText();
+            // Update health display
 
-            // Check if the maximum number of shots has been reached
-            if (currentShots >= maxShots)
+            // Check if the maximum number of collisions has been reached
+            if (currentCollisions >= maxCollisions)
             {
-                Destroy(this.gameObject); // Destroy the object
+                // Destroy the spaceship
+                Destroy(this.gameObject);
             }
 
-            Destroy(other.gameObject); // Destroy the colliding object (e.g., bullet)
-        }
-    }
-
-    private void UpdateHealthText()
-    {
-        if (healthText != null)
-        {
-            // Update the health text
-            healthText.text = "Health: " + (maxShots - currentShots);
+            Destroy(other.gameObject);
         }
     }
 
